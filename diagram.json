@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "jinudi chathusha",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 38.4, "left": 427.24, "attrs": {} },
+    {
+      "type": "wokwi-ili9341",
+      "id": "lcd1",
+      "top": -85.6,
+      "left": 671.7,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-analog-joystick",
+      "id": "joystick1",
+      "top": 28.2,
+      "left": 264.6,
+      "attrs": {}
+    },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": 204, "left": 213, "attrs": { "volume": "0.1" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "lcd1:VCC", "green", [ "h-19.05", "v-57.6", "h163.2", "v192", "h57.6" ] ],
+    [ "esp:15", "lcd1:CS", "green", [ "h57.6", "v19.2", "h67.2" ] ],
+    [ "esp:2", "lcd1:D/C", "green", [ "h19.2", "v38.4", "h19.2" ] ],
+    [ "lcd1:MOSI", "esp:23", "green", [ "v9.6", "h-115.21", "v-105.6" ] ],
+    [ "joystick1:VCC", "esp:3V3", "red", [ "v57.6", "h86.4", "v-144", "h38.4" ] ],
+    [ "esp:35", "joystick1:VERT", "green", [ "h-28.65", "v57.6", "h-86.4" ] ],
+    [ "esp:GND.1", "bz1:1", "black", [ "h-9.45", "v115.2", "h-172.8" ] ],
+    [ "esp:GND.2", "lcd1:GND", "black", [ "v0", "h96", "v153.6", "h105.6" ] ],
+    [ "esp:32", "joystick1:SEL", "green", [ "h-57.45", "v38.4", "h-48" ] ],
+    [ "bz1:2", "esp:27", "green", [ "v0", "h162.8", "v-124.8" ] ],
+    [ "esp:18", "lcd1:SCK", "green", [ "h28.8", "v105.6", "h220.8" ] ],
+    [ "joystick1:GND", "esp:GND.1", "black", [ "v76.8", "h67.2", "v-28.8" ] ],
+    [ "esp:34", "joystick1:HORZ", "green", [ "h-38.25", "v76.8", "h-67.2" ] ]
+  ],
+  "dependencies": {}
+}
